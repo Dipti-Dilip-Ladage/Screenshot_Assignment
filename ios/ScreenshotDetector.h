@@ -8,5 +8,11 @@
 #ifndef ScreenshotDetector_h
 #define ScreenshotDetector_h
 
+#import <React/RCTBridgeModule.h>
+#import <React/RCTEventEmitter.h>
+
+@interface ScreenshotDetector : RCTEventEmitter <RCTBridgeModule>
+
+@end
 
 #endif /* ScreenshotDetector_h */

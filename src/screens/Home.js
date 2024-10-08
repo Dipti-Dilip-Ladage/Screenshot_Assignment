@@ -16,7 +16,6 @@ import {getDeviceMACAddress, getDeviceName, getIMEI} from '../utils/utils';
 
 const {ScreenshotModule, AppDelegate, ScreenshotDetector} = NativeModules;
 
-const screenshotEventEmitter = new NativeEventEmitter(ScreenshotDetector);
 const Home = () => {
   const [isScreenshotEnabled, setIsScreenshotEnabled] = useState();
   const [isLoading, setIsLoading] = useState(false);
@@ -90,6 +89,7 @@ const Home = () => {
       console.error('ScreenshotDetector is not available.');
       return;
     }
+    const screenshotEventEmitter = new NativeEventEmitter(ScreenshotDetector);
     const subscription = screenshotEventEmitter.addListener(
       'ScreenshotDetected',
       () => {
@@ -112,7 +112,9 @@ const Home = () => {
     );
     return () => {
       subscription.remove();
-      screenshotEventEmitter.removeAllListeners();
+      if (screenshotEventEmitter) {
+        screenshotEventEmitter.removeAllListeners();
+      }
     };
   }, [isScreenshotEnabled]);
 
@@ -155,7 +157,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingVertical: 8,
-    paddingHorizontal: 12,
+    paddingLeft: 8,
+    paddingRight: 12,
     borderRadius: 20,
     marginTop: 80,
 

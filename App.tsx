@@ -6,10 +6,12 @@
  */
 
 import React from 'react';
-import {SafeAreaView, StatusBar, useColorScheme} from 'react-native';
+import {LogBox, SafeAreaView, StatusBar, useColorScheme} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import Home from './src/screens/Home';
+
+LogBox.ignoreAllLogs();
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';

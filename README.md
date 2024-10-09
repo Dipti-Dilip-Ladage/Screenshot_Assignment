@@ -8,6 +8,10 @@
 
 ## step 2:-
 
+- [cd android]()-> got to android folder
+- [./gradlew clean]()-> clean the gradle
+- [cd ..]()-> go back
+- [npx react-native start --reset-cache]()-> reset cache and start server
 - [npm run android]()-> will run android app
 
 ## step 3:-

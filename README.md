@@ -12,6 +12,8 @@
 
 ## step 3:-
 
+- [cd ios]()-> navigate to ios folder
+- [pod install]()-> will install pod library in iOS app
 - [npm run ios]()-> will run iOS app
 
 # description of assignment done
